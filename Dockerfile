@@ -6,8 +6,8 @@ RUN apt-get update && \
     	pwgen \
     && rm -rf /var/lib/apt/lists/*
 
-# Default port for mumble
-EXPOSE 64738
+EXPOSE 64738  # Default port for mumble
+EXPOSE 64738/udp   # enable UDP for better reliabity
 ADD ./mumble/mumble-server.ini /etc/mumble-server.ini
 ADD ./init/murmur.init /etc/init/murmur.init
 ADD ./scripts/start /start
